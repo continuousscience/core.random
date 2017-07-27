@@ -1,7 +1,7 @@
 -- these are a pure ST functions
-randi = 2 -- {0, 1, ..., 2^32-1}
-rand  = 2 -- [0,1]
-randh = 2 -- [0,1)
-rando = 2 -- (0,1)
+rand_int = 2 -- {0, 1, ..., 2^32-1}
+rand_real  = 2 -- [0,1]
+rand_half = 2 -- [0,1)
+rand_open = 2 -- (0,1)
 normal = 2 -- (-inf, inf)
 

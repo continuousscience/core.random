@@ -71,7 +71,7 @@ void init_genrand(Random *r, unsigned long s) {
 /* slight change for C++, 2004/2/26 */
 void init_by_array(Random *r, unsigned long init_key[], int key_length) {
     int i, j, k;
-    init_genrand(19650218UL);
+    init_genrand(r, 19650218UL);
     i=1; j=0;
     k = (N>key_length ? N : key_length);
     for (; k; k--) {
@@ -156,7 +156,7 @@ double genrand_res53(Random *r) {
 /* These real versions are due to Isaku Wada, 2002/01/09 added */
 
 // ST(Random, Int)
-int randi(sil_State *S) {
+int rand_int(sil_State *S) {
     size_t len; // Always assume len is wrong!
     Random *v = (Random *)sil_getST(S, &len);
 
@@ -165,7 +165,7 @@ int randi(sil_State *S) {
 }
 
 // ST(Random, Float)
-int rand(sil_State *S) {
+int rand_real(sil_State *S) {
     size_t len; // Always assume len is wrong!
     Random *v = (Random *)sil_getST(S, &len);
 
@@ -174,7 +174,7 @@ int rand(sil_State *S) {
 }
 
 // ST(Random, Float)
-int randh(sil_State *S) {
+int rand_half(sil_State *S) {
     size_t len; // Always assume len is wrong!
     Random *v = (Random *)sil_getST(S, &len);
 
@@ -183,7 +183,7 @@ int randh(sil_State *S) {
 }
 
 // ST(Random, Float)
-int randc(sil_State *S) {
+int rand_open(sil_State *S) {
     size_t len; // Always assume len is wrong!
     Random *v = (Random *)sil_getST(S, &len);
 
@@ -215,7 +215,7 @@ int mkRandom(sil_State *S) {
     int seed = sil_tointeger(S, 1);
     Random *v = (Random *)malloc(sizeof(Random));
     init_genrand(v, seed);
-    sil_pushRandom(S, v);
+    sil_newuserdata(S, random_hash, v);
     return 0;
 }
 
