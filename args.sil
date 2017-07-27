@@ -1,0 +1,9 @@
+-- Number of args for each primitive.
+
+mkRandom = 1
+randi = 0 -- {0, 1, ..., 2^32-1}
+rand  = 0 -- [0,1]
+randh = 0 -- [0,1)
+rando = 0 -- (0,1)
+normal = 0 -- (-inf, inf)
+

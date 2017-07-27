@@ -1,0 +1,8 @@
+-- Prototypes for included primitive functions
+
+mkRandom = fun Int seed -> Random
+randi = ST(Random, Int) -- {0, 1, ..., 2^32-1}
+rand  = ST(Random, Float) -- [0,1]
+randh = ST(Random, Float) -- [0,1)
+rando = ST(Random, Float) -- (0,1)
+normal = ST(Random, (Float, Float)) -- (-inf, inf)

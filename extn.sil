@@ -1,0 +1,7 @@
+-- these are a pure ST functions
+randi = 2 -- {0, 1, ..., 2^32-1}
+rand  = 2 -- [0,1]
+randh = 2 -- [0,1)
+rando = 2 -- (0,1)
+normal = 2 -- (-inf, inf)
+
