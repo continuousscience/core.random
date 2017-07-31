@@ -52,6 +52,7 @@ int mkRandom(sil_State *S) {
     int seed = sil_tointeger(S, 1);
     Random *v = (Random *)malloc(sizeof(Random));
     init_genrand(v, seed);
+    sil_settop(S, 0);
     sil_newuserdata(S, random_hash, v);
     return 0;
 }
